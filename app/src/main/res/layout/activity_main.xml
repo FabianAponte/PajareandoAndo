@@ -2,48 +2,45 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ChoseOption"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="338dp"
-        android:layout_height="73dp"
-        android:rotationX="-2"
-        android:rotationY="2"
-        android:text="¡Hola mundo!"
-        android:textAlignment="center"
-        android:textColor="#E91E63"
-        android:textSize="48sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.073" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="217dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="120dp"
-        android:text="Bienvenidos"
-        android:textAlignment="center"
-        android:textColor="#170E0E"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="178dp"
-        android:layout_height="141dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pajaro" />
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/pajaro"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <Button
+        android:id="@+id/btregister"
+        android:layout_width="139dp"
+        android:layout_height="53dp"
+        android:text="Registrar"
+        tools:layout_editor_absoluteX="62dp"
+        tools:layout_editor_absoluteY="603dp" />
+
+    <Button
+        android:id="@+id/btsearch"
+        android:layout_width="138dp"
+        android:layout_height="52dp"
+        android:text="Consultar"
+        tools:layout_editor_absoluteX="235dp"
+        tools:layout_editor_absoluteY="603dp" />
+
+    <TextView
+        android:id="@+id/tvoption"
+        android:layout_width="332dp"
+        android:layout_height="53dp"
+        android:text="¿Qué quieres hacer?"
+        android:textColor="#031F55"
+        android:textSize="34sp"
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="31dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
