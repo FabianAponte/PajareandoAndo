@@ -4,4 +4,7 @@
     <string name="name_login">Escriba su nombre</string>
     <string name="enter">Ingresar</string>
     <string name="login_password">Escriba la contraseña</string>
+    <string name="consultar">Consultar</string>
+    <string name="registrar">Registrar</string>
+    <string name="quequiereshacer">¿Qué quieres hacer?</string>
 </resources>
