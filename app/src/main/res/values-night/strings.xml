@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="imagen__para_escoger">Imagen de activity para escoger opción</string>
+    <string name="registrar">Registrar</string>
+    <string name="consultar">Consultar</string>
+    <string name="qu_quieres_hacer">¿Qué quieres hacer?</string>
+</resources>
