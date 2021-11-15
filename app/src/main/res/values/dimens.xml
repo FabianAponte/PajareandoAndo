@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="form_title">30sp</dimen>
+    <dimen name="form_colors">25sp</dimen>
+    <dimen name="form_spinner_margin">10sp</dimen>
+    <dimen name="form_button_margin">10sp</dimen>
+    <dimen name="form_color_text_margin">10sp</dimen>
+    <dimen name="form_more_4_colors_checkbox">18sp</dimen>
+    <dimen name="form_image_size">150dp</dimen>
+</resources>
