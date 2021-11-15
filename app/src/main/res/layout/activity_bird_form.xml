@@ -43,7 +43,7 @@
                     android:layout_width="@dimen/form_image_size"
                     android:layout_height="@dimen/form_image_size"
                     app:srcCompat="@drawable/pajaro"
-                    android:id="@+id/imageView3"
+                    android:id="@+id/birdImage"
                     android:layout_weight="1"
                     android:contentDescription="@string/bird_name" />
         </com.google.android.material.card.MaterialCardView>
@@ -259,10 +259,10 @@
                 android:text="@string/register"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/button2"
+                android:id="@+id/registerButton"
                 android:layout_weight="1"
                 android:layout_marginHorizontal="@dimen/form_button_margin"
-                android:onClick="goToMain" />
+                android:onClick="register" />
 
         <Button
                 android:text="@string/volver"
