@@ -7,4 +7,24 @@
     <string name="consultar">Consultar</string>
     <string name="registrar">Registrar</string>
     <string name="quequiereshacer">¿Qué quieres hacer?</string>
+    <string name="about_bird_picture">Sobre la foto de tu ave:</string>
+    <string name="bird_name">Nombre del ave</string>
+    <string name="predominant_colors">Colores predominantes</string>
+    <string name="ubication">Ubicación</string>
+    <string name="color_1">Color 1</string>
+    <string name="color_3">Color 3</string>
+    <string name="color_2">Color 2</string>
+    <string name="color_4">Color 4</string>
+    <string name="tiene_m_s_de_4_colores">Tiene más de 4 colores</string>
+    <string name="review">Reseña</string>
+    <string name="register">Registrar</string>
+    <string name="volver">Volver</string>
+    <string name="review_your_bird">Reseña de tu ave</string>
+    <string name="latitud">Latitud:</string>
+    <string name="longitud">Longitud:</string>
+    <string name="tomada_el">Tomada el:</string>
+    <string name="bird_size">Tamaño del ave</string>
+    <string name="bird_type">Tipo de ave</string>
+
+
 </resources>
