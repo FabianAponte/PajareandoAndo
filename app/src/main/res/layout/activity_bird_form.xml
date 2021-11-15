@@ -262,7 +262,7 @@
                 android:id="@+id/button2"
                 android:layout_weight="1"
                 android:layout_marginHorizontal="@dimen/form_button_margin"
-                />
+                android:onClick="goToMain" />
 
         <Button
                 android:text="@string/volver"
@@ -270,7 +270,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/button3"
                 android:layout_marginHorizontal="@dimen/form_button_margin"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:onClick="goToMain" />
     </LinearLayout>
 
 </LinearLayout>

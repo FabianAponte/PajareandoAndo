@@ -2,7 +2,9 @@ package com.example.pajareando;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 
@@ -29,5 +31,10 @@ public class BirdFormActivity extends AppCompatActivity {
         autoCompleteBirdTypeView.setText(arrayAdapter1.getItem(0).toString(), false);
         autoCompleteBirdSizeView.setText(arrayAdapter2.getItem(0).toString(), false);
         autoCompleteBirdSizeView.setAdapter(arrayAdapter2);
+    }
+
+    public void goToMain(View view) {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
     }
 }
