@@ -56,12 +56,11 @@
                 android:layout_weight="1">
 
             <EditText
+                    android:id="@+id/birdName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
-
                     android:ems="10"
-                    android:id="@+id/editTextTextPersonName"
                     android:minHeight="48dp"
                     android:hint="@string/bird_name"
                     android:autofillHints="1" />
@@ -172,7 +171,7 @@
                     android:inputType="textPersonName"
                     android:hint="@string/color_1"
                     android:ems="10"
-                    android:id="@+id/editTextTextPersonName3" />
+                    android:id="@+id/color1" />
 
             <EditText
                     android:layout_width="match_parent"
@@ -180,7 +179,7 @@
                     android:inputType="textPersonName"
                     android:hint="@string/color_3"
                     android:ems="10"
-                    android:id="@+id/editTextTextPersonName2" />
+                    android:id="@+id/color3" />
         </LinearLayout>
 
         <LinearLayout
@@ -196,7 +195,7 @@
                     android:inputType="textPersonName"
                     android:hint="@string/color_2"
                     android:ems="10"
-                    android:id="@+id/editTextTextPersonName5" />
+                    android:id="@+id/color2" />
 
             <EditText
                     android:layout_width="match_parent"
@@ -204,7 +203,7 @@
                     android:inputType="textPersonName"
                     android:hint="@string/color_4"
                     android:ems="10"
-                    android:id="@+id/editTextTextPersonName4" />
+                    android:id="@+id/color4" />
         </LinearLayout>
     </LinearLayout>
 
@@ -217,7 +216,7 @@
                 android:text="@string/tiene_m_s_de_4_colores"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/checkBox"
+                android:id="@+id/hasMoreColors"
                 android:textSize="@dimen/form_more_4_colors_checkbox"
                 android:layout_weight="1" />
     </LinearLayout>
@@ -231,7 +230,7 @@
                 android:text="@string/review"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView5"
+                android:id="@+id/review"
                 android:layout_weight="1"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -256,7 +255,7 @@
             >
 
         <Button
-                android:text="@string/register"
+                android:text="@string/takePicture"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/registerButton"

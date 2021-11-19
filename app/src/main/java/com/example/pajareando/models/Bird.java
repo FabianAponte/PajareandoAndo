@@ -1,5 +1,101 @@
 package com.example.pajareando.models;
 
+import android.content.Context;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 public class Bird {
     public static final String TABLE_NAME = "birds";
+
+    String name, type, size, color1, color2, color3, color4, review, imagePath;
+    boolean moreColors;
+    Context context;
+
+    public Bird(
+            String name,
+            String type,
+            String size,
+            String color1,
+            String color2,
+            String color3,
+            String color4,
+            boolean moreColors,
+            String review,
+            String imagePath,
+            Context context
+    ) {
+        this.name = name;
+        this.type = type;
+        this.size = size;
+        this.color1 = color1;
+        this.color2 = color2;
+        this.color3 = color3;
+        this.color4 = color4;
+        this.moreColors = moreColors;
+        this.review = review;
+        this.imagePath = imagePath;
+        this.context = context;
+    }
+
+    public void save() {
+        Map<String, String> birdInfo = new HashMap<String, String>();
+        birdInfo.put("name", this.name);
+        birdInfo.put("type", this.type);
+        birdInfo.put("size", this.size);
+        birdInfo.put("color1", this.color1);
+        birdInfo.put("color2", this.color2);
+        birdInfo.put("color3", this.color3);
+        birdInfo.put("color4", this.color4);
+        birdInfo.put("moreColors", this.moreColors ? "yes" : "no");
+        birdInfo.put("review", this.review);
+        birdInfo.put("imagePath", this.imagePath);
+
+        ModelDb.save(birdInfo, Bird.TABLE_NAME, this.context);
+    }
+
+    public static ArrayList<Bird> getAll(Context context) {
+        ArrayList<Map<String, String>> birdsInfo = ModelDb.getAll(Bird.TABLE_NAME, context);
+
+        ArrayList<Bird> birds = new ArrayList<Bird>();
+        try {
+
+        for (Map birdInfo : birdsInfo) {
+            birds.add(new Bird(
+                birdInfo.get("name") != null ? birdInfo.get("name").toString() : "",
+                birdInfo.get("type") != null ? birdInfo.get("type").toString() : "",
+                birdInfo.get("size") != null ? birdInfo.get("size").toString() : "",
+                birdInfo.get("color1") != null ? birdInfo.get("color1").toString() : "",
+                birdInfo.get("color2") != null ? birdInfo.get("color2").toString() : "",
+                birdInfo.get("color3") != null ? birdInfo.get("color3").toString() : "",
+                birdInfo.get("color4") != null ? birdInfo.get("color4").toString() : "",
+                birdInfo.get("moreColors") == "yes",
+                birdInfo.get("review") != null ? birdInfo.get("review").toString() : "",
+                birdInfo.get("imagePath") != null ? birdInfo.get("imagePath").toString() : "",
+                context
+            ));
+        }
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return birds;
+    }
+
+    @Override
+    public String toString() {
+        return "Bird{" +
+                "name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", size='" + size + '\'' +
+                ", color1='" + color1 + '\'' +
+                ", color2='" + color2 + '\'' +
+                ", color3='" + color3 + '\'' +
+                ", color4='" + color4 + '\'' +
+                ", review='" + review + '\'' +
+                ", imagePath='" + imagePath + '\'' +
+                ", moreColors=" + moreColors +
+                '}';
+    }
 }
