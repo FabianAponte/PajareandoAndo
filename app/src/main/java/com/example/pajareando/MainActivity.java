@@ -18,4 +18,13 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), BirdFormActivity.class);
         startActivity(intent);
     }
+	    public void goToBirdConsultAll(View view) {
+        Intent intent = new Intent(getApplicationContext(), BirdConsultAllActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToActivityBirdDetail(View view) {
+        Intent intent = new Intent(getApplicationContext(), BirdDetailActivity.class);
+        startActivity(intent);
+    }
 }
