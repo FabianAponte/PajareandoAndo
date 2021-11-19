@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".BirdConsultAllActivity">
+
+    <TextView
+        android:id="@+id/titleConsultAll"
+        android:layout_width="332dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="60dp"
+        android:text="@string/consultBirds"
+        android:textColor="#031F55"
+        android:textSize="35sp"/>
+
+    <TextView
+        android:id="@+id/subTitleConsultAll"
+        android:layout_width="332dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/lastBird"
+        android:textColor="#031F55"
+        android:textSize="23sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/form_button_margin"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="@dimen/form_button_margin">
+
+            <ImageView
+                android:id="@+id/birdImage"
+                android:layout_width="@dimen/form_image_size"
+                android:layout_height="@dimen/form_image_size"
+                android:layout_weight="1"
+                android:contentDescription="@string/bird_name"
+                app:srcCompat="@drawable/pajaro" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <!---> ********** <!-->
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="@dimen/form_button_margin">
+
+            <TextView
+                android:id="@+id/textViewDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/bird_name"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/black" />
+            <Button
+                android:id="@+id/consultAllDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/form_button_margin"
+                android:layout_weight="1"
+                android:text="@string/consultAllDetails"
+                android:onClick="goToActivityBirdDetail"/>
+
+        </LinearLayout>
+    </LinearLayout>
+    <!---> ********** <!-->
+
+    <!---> ********** <!-->
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/form_button_margin"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="@dimen/form_button_margin">
+
+            <ImageView
+                android:id="@+id/birdImage1"
+                android:layout_width="@dimen/form_image_size"
+                android:layout_height="@dimen/form_image_size"
+                android:layout_weight="1"
+                android:contentDescription="@string/bird_name"
+                app:srcCompat="@drawable/pajaro" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <!---> ********** <!-->
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="@dimen/form_button_margin">
+
+            <TextView
+                android:id="@+id/textViewDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/bird_name"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/black" />
+            <Button
+                android:id="@+id/consultAllDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/form_button_margin"
+                android:layout_weight="1"
+                android:text="@string/consultAllDetails"
+                android:onClick="goToActivityBirdDetail"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <!---> ********** <!-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/form_button_margin">
+
+        <Button
+            android:id="@+id/btnBackGoToMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/form_button_margin"
+            android:layout_weight="1"
+            android:text="@string/volver"
+            android:onClick="goToMain"/>
+    </LinearLayout>
+
+</LinearLayout>
