@@ -83,6 +83,46 @@ public class Bird {
         return birds;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public String getColor1() {
+        return color1;
+    }
+
+    public String getColor2() {
+        return color2;
+    }
+
+    public String getColor3() {
+        return color3;
+    }
+
+    public String getColor4() {
+        return color4;
+    }
+
+    public String getReview() {
+        return review;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public boolean isMoreColors() {
+        return moreColors;
+    }
+
     @Override
     public String toString() {
         return "Bird{" +
