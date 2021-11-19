@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ChoseOption"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:importantForAccessibility="no"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/pajaro"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <Button
+            android:id="@+id/btregister"
+            android:layout_width="139dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="480dp"
+            android:text="@string/registrar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvoption"
+            app:layout_constraintVertical_bias="0.0"
+            android:onClick="goToBirdForm" />
+
+    <Button
+        android:id="@+id/btsearch"
+        android:layout_width="138dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="480dp"
+        android:layout_marginEnd="44dp"
+        android:text="@string/consultar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvoption"
+        app:layout_constraintVertical_bias="0.004"
+        android:onClick="goToBirdConsultAll" />
+
+    <TextView
+        android:id="@+id/tvoption"
+        android:layout_width="332dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="60dp"
+        android:text="@string/quequiereshacer"
+        android:textColor="#031F55"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
