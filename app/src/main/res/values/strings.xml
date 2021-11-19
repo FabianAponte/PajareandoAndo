@@ -26,6 +26,11 @@
     <string name="tomada_el">Tomada el:</string>
     <string name="bird_size">Tamaño del ave</string>
     <string name="bird_type">Tipo de ave</string>
+	<string name="consultBirds">Consulta de aves:</string>
+    <string name="lastBird">Últimas aves fotografiadas</string>
+    <string name="consultAllDetails">Detalles</string>
+    <string name="reviewDetail">Detalle Ave</string>
+    <string name="reviewDetailDescription">Aqui van los detalles del Ave disponible proximamente</string>
 
 
 </resources>
