@@ -76,12 +76,45 @@ public class ModelDb {
         return mapInfo;
     }
 
+    /**
+     * Método para obtener un elemento y luego se tiene acceso a este por medio de Map
+     *
+     * Example
+     * Map<String, String> bird = Bird.findById(1, Bird.TABLE_NAME, getApplicationContext());
+     * Toast.makeText(getApplicationContext(), bird.get("id"), Toast.LENGTH_SHORT).show();
+     *
+     * @param parameter
+     * @param table
+     * @param value
+     * @param context
+     * @return
+     */
+    public static Map<String, String> findByParameter(String parameter, String value, String table, Context context) {
+        Database database = new Database(context);
+        SQLiteDatabase readDb = database.getReadableDatabase();
+
+        Cursor cursor = readDb.rawQuery("SELECT * FROM " + table + " WHERE " + parameter + " = ?",  new String[]{ value});
+
+        Map<String, String>mapInfo = new HashMap<String, String>();
+
+        if (cursor.moveToFirst()) {
+            int column = cursor.getColumnCount();
+            for (int i = 0; i < column; i++) {
+                mapInfo.put(cursor.getColumnName(i), cursor.getString(i));
+            }
+        }
+
+        readDb.close();
+        database.close();
+
+        return mapInfo;
+    }
+
 
     /**
      * Método para obtener todos los datos de la tabla
      *
      * Example
-     *
      *  List<Map<String, String>> array = ModelDb.getAll(Bird.TABLE_NAME, getApplicationContext());
      *         String algo = "";
      *         for (int i = 0; i < array.size(); i++) {
