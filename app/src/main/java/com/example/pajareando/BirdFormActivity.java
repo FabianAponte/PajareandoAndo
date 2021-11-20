@@ -22,11 +22,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pajareando.models.Bird;
+import com.example.pajareando.models.ModelDb;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class BirdFormActivity extends AppCompatActivity {
@@ -84,8 +87,6 @@ public class BirdFormActivity extends AppCompatActivity {
         hasMoreColors = findViewById(R.id.hasMoreColors);
         review = findViewById(R.id.review);
 
-        Toast.makeText(getApplicationContext(), birdSizeInput.getText().toString(), Toast.LENGTH_SHORT).show();
-
 //        ArrayList<Bird> birds = Bird.getAll(getApplicationContext());
 //
 //        for (Bird bird: birds) {
@@ -131,7 +132,7 @@ public class BirdFormActivity extends AppCompatActivity {
                             color4.getText().toString(),
                             hasMoreColors.isChecked(),
                             review.getText().toString(),
-                            absoluteImagePath,
+                            "absoluteImagePath",
                             getApplicationContext()
                     );
                     bird.save();

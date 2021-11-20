@@ -41,6 +41,7 @@ public class Bird {
 
     public void save() {
         Map<String, String> birdInfo = new HashMap<String, String>();
+
         birdInfo.put("name", this.name);
         birdInfo.put("type", this.type);
         birdInfo.put("size", this.size);
@@ -51,6 +52,7 @@ public class Bird {
         birdInfo.put("moreColors", this.moreColors ? "yes" : "no");
         birdInfo.put("review", this.review);
         birdInfo.put("imagePath", this.imagePath);
+
 
         ModelDb.save(birdInfo, Bird.TABLE_NAME, this.context);
     }
