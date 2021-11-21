@@ -121,7 +121,7 @@ public class BirdFormActivity extends AppCompatActivity {
         } else {
             if (verifyInfo()) {
                 try {
-                    saveBirdImage();
+ //                   saveBirdImage();
                     Bird bird = new Bird(
                             birdName.getText().toString(),
                             birdTypeInput.getText().toString(),

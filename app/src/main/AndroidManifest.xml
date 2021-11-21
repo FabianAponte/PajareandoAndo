@@ -1,28 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        package="com.example.pajareando">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.pajareando">
 
-
-        <uses-permission android:name="android.permission.camera" android:required="true"/>
-        <uses-permission
-                android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-                android:required="true"
-                tools:ignore="ScopedStorage" />
-        <uses-permission android:name="android.permission.Read_EXTERNAL_STORAGE"  android:required="true"/>
+    <uses-permission
+        android:name="android.permission.camera"
+        android:required="true" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:required="true"
+        tools:ignore="ScopedStorage" />
+    <uses-permission
+        android:name="android.permission.Read_EXTERNAL_STORAGE"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Pajareando"
-        android:requestLegacyExternalStorage="true">
+        android:theme="@style/Theme.Pajareando">
+        <activity
+            android:name=".UserRegisterActivity"
+            android:exported="true"></activity>
+
+
         <activity
             android:name=".BirdFormActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".LoginActivity"
             android:exported="true">
@@ -34,16 +41,13 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-        </activity>
-		        <activity
+            android:exported="true"></activity>
+        <activity
             android:name=".BirdConsultAllActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".BirdDetailActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>

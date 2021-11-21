@@ -10,7 +10,9 @@ import android.widget.Toast;
 
 import com.example.pajareando.models.ModelDb;
 
+import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -27,26 +29,44 @@ public class LoginActivity extends AppCompatActivity {
         /**
          * Logica para guardar un usuario
          */
-        //        Map<String, String> birdInfo = new HashMap<String, String>();
-        //
-        //        birdInfo.put("name", "ramon");
-        //        birdInfo.put("email", "ramoncito@test.com");
-        //        birdInfo.put("password", "123456789");
-        //        birdInfo.put("role", "admin");
-        //
-        //        ModelDb.save(birdInfo, "users", getApplicationContext());
-//
+         /*
+                Map<String, String> birdInfo = new HashMap<String, String>();
+
+                birdInfo.put("name", "ramon");
+                birdInfo.put("email", "ramoncito@test.com");
+                birdInfo.put("password", "123456789");
+                birdInfo.put("role", "admin");
+
+                ModelDb.save(birdInfo, "users", getApplicationContext());*/
+
 
     }
 
     public void goToMain(View view) {
-        Map<String, String> user = ModelDb.findByParameter("email", email.getText().toString(), "users", getApplicationContext());
 
-        if (user.get("password").equals(password.getText().toString())) {
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);
-        } else {
-            Toast.makeText(getApplicationContext(), "Oye que haces esto no es tuyo", Toast.LENGTH_SHORT).show();
+        Map<String, String> user = ModelDb.findByParameter("email", email.getText().toString(), "users", getApplicationContext());
+        if (user.get("email") != null) {
+
+            if (user.get("password").equals(password.getText().toString())) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            } else {
+                Toast.makeText(getApplicationContext(), "Oye que haces esto no es tuyo", Toast.LENGTH_SHORT).show();
+            }
+        }  else {
+            Toast.makeText(getApplicationContext(), "Oye no estas registrado", Toast.LENGTH_SHORT).show();
         }
     }
+
+    public void goToUserRegister(View view) {
+
+        Intent intent = new Intent(getApplicationContext(), UserRegisterActivity.class);
+        startActivity(intent);
+    }
+
+
+
+
+
+
 }

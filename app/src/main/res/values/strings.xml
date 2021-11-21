@@ -26,11 +26,17 @@
     <string name="tomada_el">Tomada el:</string>
     <string name="bird_size">Tamaño del ave</string>
     <string name="bird_type">Tipo de ave</string>
-	<string name="consultBirds">Consulta de aves:</string>
+    <string name="consultBirds">Consulta de aves:</string>
     <string name="lastBird">Últimas aves fotografiadas</string>
     <string name="consultAllDetails">Detalles</string>
     <string name="reviewDetail">Detalle Ave</string>
     <string name="reviewDetailDescription">Aqui van los detalles del Ave disponible proximamente</string>
+    <string name="registro_de_usuario">Registro de usuario</string>
+    <string name="escriba_su_email">Escriba su email</string>
+    <string name="confirme_contrasena">Confirme contraseña</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="solicitud_para_registrarse">¿No tiene usuario?¡Regístrese!</string>
+    <string name="salir">Salir</string>
 
 
 </resources>

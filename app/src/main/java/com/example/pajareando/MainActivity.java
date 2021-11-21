@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+
     public void goToBirdForm(View view) {
         Intent intent = new Intent(getApplicationContext(), BirdFormActivity.class);
         startActivity(intent);
@@ -27,4 +28,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), BirdDetailActivity.class);
         startActivity(intent);
     }
+
+    public void goToLogin(View view) {
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+        startActivity(intent);
+    }
+
 }
