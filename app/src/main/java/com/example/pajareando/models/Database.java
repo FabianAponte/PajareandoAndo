@@ -24,10 +24,9 @@ public class Database extends SQLiteOpenHelper {
 
     private static final String TABLE_USERS = "CREATE TABLE users (" +
             "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-            " name TEXT NOT NULL," +
+            " username TEXT NOT NULL," +
             " email TEXT NOT NULL, " +
-            " password TEXT NOT NULL, " +
-            " role TEXT);";
+            " password TEXT NOT NULL);";
 
     public Database(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -41,6 +40,7 @@ public class Database extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+        sqLiteDatabase.execSQL(TABLE_BIRDS);
         sqLiteDatabase.execSQL(TABLE_USERS);
     }
 }

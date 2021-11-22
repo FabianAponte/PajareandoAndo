@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserRegisterActivity"
+    android:orientation="vertical">
+
+
+
+    <TextView
+        android:id="@+id/tvtitleuserregister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="@string/registro_de_usuario"
+        android:textAlignment="center"
+        android:textColor="#031F55"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.144" />
+
+
+    <EditText
+        android:id="@+id/etUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginTop="80dp"
+        android:autofillHints="name"
+        android:hint="@string/name_login"
+        android:inputType="textPersonName"
+        android:text=""
+        android:textColor="#E91E63"
+        android:textSize="25sp"
+        tools:ignore="TextContrastCheck" />
+
+    <EditText
+        android:id="@+id/etUserEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        android:autofillHints="name"
+        android:hint="@string/escriba_su_email"
+        android:inputType="textEmailAddress"
+        android:text=""
+        android:textColor="#E91E63"
+        android:textSize="25sp"
+        tools:ignore="TextContrastCheck" />
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        android:autofillHints="password"
+        android:hint="@string/login_password"
+        android:inputType="textPassword"
+        android:textSize="25sp"
+        tools:ignore="TextContrastCheck" />
+
+    <EditText
+        android:id="@+id/etRepeatPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        android:autofillHints="password"
+        android:hint="@string/confirme_contrasena"
+        android:inputType="textPassword"
+        android:textSize="25sp"
+        tools:ignore="TextContrastCheck" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:padding="@dimen/form_button_margin"
+        >
+
+        <Button
+            android:id="@+id/userregisterButton"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="@string/registrarse"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="@dimen/form_button_margin"
+            android:onClick="userRegister" />
+
+        <Button
+            android:id="@+id/volverButton"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="@string/volver"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="@dimen/form_button_margin"
+            android:onClick="goToLogin" />
+    </LinearLayout>
+
+
+</LinearLayout>
+
