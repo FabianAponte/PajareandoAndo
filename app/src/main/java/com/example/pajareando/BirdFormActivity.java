@@ -7,6 +7,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -121,7 +122,7 @@ public class BirdFormActivity extends AppCompatActivity {
         } else {
             if (verifyInfo()) {
                 try {
- //                   saveBirdImage();
+                    saveBirdImage();
                     Bird bird = new Bird(
                             birdName.getText().toString(),
                             birdTypeInput.getText().toString(),
@@ -132,12 +133,13 @@ public class BirdFormActivity extends AppCompatActivity {
                             color4.getText().toString(),
                             hasMoreColors.isChecked(),
                             review.getText().toString(),
-                            "absoluteImagePath",
+                            absoluteImagePath,
                             getApplicationContext()
                     );
                     bird.save();
 
                     Toast.makeText(getApplicationContext(), "Información de ave guardada", Toast.LENGTH_SHORT).show();
+                    cleanForm();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -145,6 +147,25 @@ public class BirdFormActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Falta información necesaria", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    private void cleanForm() {
+        birdName.setText("");
+        birdTypeInput.setText("");
+        birdSizeInput.setText("");
+        color1.setText("");
+        color2.setText("");
+        color3.setText("");
+        color4.setText("");
+        hasMoreColors.setChecked(false);
+        review.setText("");
+        registerButton.setText(R.string.takePicture);
+        hasImage = false;
+
+        Bitmap icon = BitmapFactory.decodeResource(getApplicationContext().getResources(),
+                R.drawable.pajaro);
+
+        birdImage.setImageBitmap(icon);
     }
 
     /**
@@ -179,7 +200,6 @@ public class BirdFormActivity extends AppCompatActivity {
             absoluteImagePath = file.getAbsolutePath();
 
             MediaStore.Images.Media.insertImage(getContentResolver(), absoluteImagePath, file.getName(),file.getName());
-            Toast.makeText(getApplicationContext(), "Image saved", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             throw e;
         }

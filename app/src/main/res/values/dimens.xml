@@ -7,4 +7,5 @@
     <dimen name="form_color_text_margin">10sp</dimen>
     <dimen name="form_more_4_colors_checkbox">18sp</dimen>
     <dimen name="form_image_size">150dp</dimen>
+    <dimen name="bird_detail">20sp</dimen>
 </resources>
