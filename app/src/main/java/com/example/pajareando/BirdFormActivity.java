@@ -8,10 +8,12 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.location.Location;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.util.Log;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -23,14 +25,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pajareando.models.Bird;
-import com.example.pajareando.models.ModelDb;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationCallback;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationResult;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnSuccessListener;
 
 
 public class BirdFormActivity extends AppCompatActivity {
@@ -42,21 +50,25 @@ public class BirdFormActivity extends AppCompatActivity {
     final String []birdSize =  {"Pequeño", "Mediano", "Grande"};
 
     boolean hasImage = false;
-    Button registerButton;
+    Button registerButton, getUbication;
     ImageView birdImage;
     Bitmap imgBitmap;
     EditText birdName, color1, color2, color3, color4;
     AutoCompleteTextView birdTypeInput, birdSizeInput;
     CheckBox hasMoreColors;
-    TextView review;
+    TextView review, photoDate, longitud, latitud;
     String absoluteImagePath;
 
+    private FusedLocationProviderClient fusedLocationClient;
+    LocationRequest locationRequest;
+    LocationCallback locationCallback;
+
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
+    private static final int PERMISSION_FINE_LOCATION = 99;
     private static String[] PERMISSIONS_STORAGE = {
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,12 +99,20 @@ public class BirdFormActivity extends AppCompatActivity {
         color4 = findViewById(R.id.color4);
         hasMoreColors = findViewById(R.id.hasMoreColors);
         review = findViewById(R.id.review);
+        photoDate = findViewById(R.id.photoDate);
+        getUbication = findViewById(R.id.getUbication);
 
-//        ArrayList<Bird> birds = Bird.getAll(getApplicationContext());
-//
-//        for (Bird bird: birds) {
-//            Log.i("birds", bird.toString());
-//        }
+        /**
+         * Lógica de location
+         */
+        locationRequest = new LocationRequest();
+
+        locationRequest.setInterval(1000 * 30);
+        locationRequest.setFastestInterval(1000 * 5);
+        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+
+        longitud = findViewById(R.id.longitud);
+        latitud = findViewById(R.id.latitud);
     }
 
     private void startCombos() {
@@ -116,7 +136,7 @@ public class BirdFormActivity extends AppCompatActivity {
     public void register(View view) {
         if (!hasImage) {
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            if(intent.resolveActivity(getPackageManager()) != null){
+            if (intent.resolveActivity(getPackageManager()) != null) {
                 startActivityForResult(intent, 1);
             }
         } else {
@@ -134,6 +154,9 @@ public class BirdFormActivity extends AppCompatActivity {
                             hasMoreColors.isChecked(),
                             review.getText().toString(),
                             absoluteImagePath,
+                            longitud.getText().toString(),
+                            latitud.getText().toString(),
+                            photoDate.getText().toString(),
                             getApplicationContext()
                     );
                     bird.save();
@@ -149,6 +172,15 @@ public class BirdFormActivity extends AppCompatActivity {
         }
     }
 
+    private void setPhotoDate() {
+        Date c = Calendar.getInstance().getTime();
+        System.out.println("Current time => " + c);
+
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+        String formattedDate = df.format(c);
+        photoDate.setText(getResources().getString(R.string.tomada_el) + " " + formattedDate);
+    }
+
     private void cleanForm() {
         birdName.setText("");
         birdTypeInput.setText("");
@@ -161,6 +193,13 @@ public class BirdFormActivity extends AppCompatActivity {
         review.setText("");
         registerButton.setText(R.string.takePicture);
         hasImage = false;
+        photoDate.setText(getResources().getString(R.string.tomada_el));
+        latitud.setText(getResources().getString(R.string.latitud));
+        longitud.setText(getResources().getString(R.string.longitud));
+
+        latitud.setVisibility(View.GONE);
+        longitud.setVisibility(View.GONE);
+        getUbication.setVisibility(View.VISIBLE);
 
         Bitmap icon = BitmapFactory.decodeResource(getApplicationContext().getResources(),
                 R.drawable.pajaro);
@@ -214,6 +253,39 @@ public class BirdFormActivity extends AppCompatActivity {
             birdImage.setImageBitmap(imgBitmap);
             hasImage = true;
             registerButton.setText(R.string.register);
+            setPhotoDate();
+
         }
+    }
+
+    public void getGps(View view) {
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+
+        if (checkIfLocationOpened() && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            fusedLocationClient.getLastLocation().addOnSuccessListener(this, new OnSuccessListener<Location>() {
+                @Override
+                public void onSuccess(Location location) {
+                    view.setVisibility(View.GONE);
+                    latitud.setVisibility(View.VISIBLE);
+                    longitud.setVisibility(View.VISIBLE);
+                    longitud.setText(getResources().getString(R.string.longitud) + " " + location.getLongitude());
+                    latitud.setText(getResources().getString(R.string.latitud) + " " + location.getLatitude());
+                }
+            });
+        } else {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION_FINE_LOCATION);
+            }
+        }
+    }
+
+    private boolean checkIfLocationOpened() {
+        String provider = Settings.Secure.getString(getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
+        System.out.println("Provider contains=> " + provider);
+        if (provider.contains("gps")){
+            return true;
+        }
+        Toast.makeText(getApplicationContext(), "Debes activar la localicación para obtener tu ubicación actual.", Toast.LENGTH_LONG).show();
+        return false;
     }
 }

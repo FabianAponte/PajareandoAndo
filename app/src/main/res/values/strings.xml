@@ -37,6 +37,7 @@
     <string name="registrarse">Registrarse</string>
     <string name="solicitud_para_registrarse">¿No tiene usuario?¡Regístrese!</string>
     <string name="salir">Salir</string>
+    <string name="obtener_ubicacion">Obtener ubicación</string>
 
 
 </resources>

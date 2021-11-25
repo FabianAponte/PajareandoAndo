@@ -53,6 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="@dimen/form_button_margin"
+                android:gravity="center"
                 android:layout_weight="1">
 
             <EditText
@@ -72,23 +73,35 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/textView2" />
 
+            <Button
+                    android:text="@string/obtener_ubicacion"
+                    android:backgroundTint="@color/teal_700"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/getUbication"
+                    android:onClick="getGps"
+                    android:textSize="10sp" />
+
             <TextView
                     android:text="@string/latitud"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView6" />
+                    android:visibility="gone"
+                    android:id="@+id/latitud" />
 
             <TextView
                     android:text="@string/longitud"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView7" />
+                    android:visibility="gone"
+                    android:id="@+id/longitud" />
 
             <TextView
                     android:text="@string/tomada_el"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView8"
+                    android:id="@+id/photoDate"
                     android:layout_marginTop="@dimen/form_button_margin"
                     />
         </LinearLayout>
