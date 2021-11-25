@@ -10,7 +10,7 @@ public class Bird {
     public static final String TABLE_NAME = "birds";
 
     int id;
-    String name, type, size, color1, color2, color3, color4, review, imagePath;
+    String name, type, size, color1, color2, color3, color4, review, imagePath, longitud, latitud, photoDate;
     boolean moreColors;
     Context context;
 
@@ -26,6 +26,9 @@ public class Bird {
             boolean moreColors,
             String review,
             String imagePath,
+            String longitud,
+            String latitud,
+            String photoDate,
             Context context
     ) {
         this.id = id;
@@ -39,6 +42,9 @@ public class Bird {
         this.moreColors = moreColors;
         this.review = review;
         this.imagePath = imagePath;
+        this.longitud = longitud;
+        this.latitud = latitud;
+        this.photoDate = photoDate;
         this.context = context;
     }
 
@@ -53,6 +59,9 @@ public class Bird {
             boolean moreColors,
             String review,
             String imagePath,
+            String longitud,
+            String latitud,
+            String photoDate,
             Context context
     ) {
         this.name = name;
@@ -65,6 +74,9 @@ public class Bird {
         this.moreColors = moreColors;
         this.review = review;
         this.imagePath = imagePath;
+        this.longitud = longitud;
+        this.latitud = latitud;
+        this.photoDate = photoDate;
         this.context = context;
     }
 
@@ -81,7 +93,9 @@ public class Bird {
         birdInfo.put("moreColors", this.moreColors ? "yes" : "no");
         birdInfo.put("review", this.review);
         birdInfo.put("imagePath", this.imagePath);
-
+        birdInfo.put("longitud", this.longitud);
+        birdInfo.put("latitud", this.latitud);
+        birdInfo.put("photoDate", this.photoDate);
 
         ModelDb.save(birdInfo, Bird.TABLE_NAME, this.context);
     }
@@ -105,6 +119,9 @@ public class Bird {
                 birdInfo.get("moreColors") == "yes",
                 birdInfo.get("review") != null ? birdInfo.get("review").toString() : "",
                 birdInfo.get("imagePath") != null ? birdInfo.get("imagePath").toString() : "",
+                birdInfo.get("longitud") != null ? birdInfo.get("longitud").toString() : "",
+                birdInfo.get("latitud") != null ? birdInfo.get("latitud").toString() : "",
+                birdInfo.get("photoDate") != null ? birdInfo.get("photoDate").toString() : "",
                 context
             ));
         }
@@ -130,6 +147,10 @@ public class Bird {
                 bird.get("moreColors") == "yes",
                 bird.get("review") != null ? bird.get("review").toString() : "",
                 bird.get("imagePath") != null ? bird.get("imagePath").toString() : "",
+                bird.get("longitud") != null ? bird.get("longitud").toString() : "",
+                bird.get("latitud") != null ? bird.get("latitud").toString() : "",
+                bird.get("photoDate") != null ? bird.get("photoDate").toString() : "",
+
                 context
         );
     }
@@ -176,19 +197,15 @@ public class Bird {
         return moreColors;
     }
 
-    @Override
-    public String toString() {
-        return "Bird{" +
-                "name='" + name + '\'' +
-                ", type='" + type + '\'' +
-                ", size='" + size + '\'' +
-                ", color1='" + color1 + '\'' +
-                ", color2='" + color2 + '\'' +
-                ", color3='" + color3 + '\'' +
-                ", color4='" + color4 + '\'' +
-                ", review='" + review + '\'' +
-                ", imagePath='" + imagePath + '\'' +
-                ", moreColors=" + moreColors +
-                '}';
+    public String getLongitud() {
+        return longitud;
+    }
+
+    public String getLatitud() {
+        return latitud;
+    }
+
+    public String getPhotoDate() {
+        return photoDate;
     }
 }

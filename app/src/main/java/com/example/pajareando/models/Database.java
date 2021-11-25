@@ -20,6 +20,9 @@ public class Database extends SQLiteOpenHelper {
             " color4 TEXT," +
             " moreColors TEXT," +
             " review TEXT," +
+            " longitud TEXT," +
+            " latitud TEXT," +
+            " photoDate TEXT," +
             " imagePath TEXT)";
 
     private static final String TABLE_USERS = "CREATE TABLE users (" +
