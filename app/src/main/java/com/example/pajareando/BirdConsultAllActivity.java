@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -75,6 +74,9 @@ public class BirdConsultAllActivity extends AppCompatActivity {
         TextView name = view.findViewById(R.id.birdName);
         Button detail = view.findViewById(R.id.birdDetail);
         ImageView imageView = view.findViewById(R.id.birdImage);
+        TextView color = view.findViewById(R.id.birdColor);
+        color.setText(bird.getColor1() + " " + bird.getColor2() + " " + bird.getColor3() + " " + bird.getColor4());
+
         name.setText(bird.getName());
 
         File imgFile = new File(bird.getImagePath());

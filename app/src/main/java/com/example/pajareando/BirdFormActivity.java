@@ -1,8 +1,5 @@
 package com.example.pajareando;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -24,7 +21,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
 import com.example.pajareando.models.Bird;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationCallback;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -32,13 +37,6 @@ import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationCallback;
-import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.location.LocationResult;
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.tasks.OnSuccessListener;
 
 
 public class BirdFormActivity extends AppCompatActivity {
@@ -98,7 +96,7 @@ public class BirdFormActivity extends AppCompatActivity {
         color3 = findViewById(R.id.color3);
         color4 = findViewById(R.id.color4);
         hasMoreColors = findViewById(R.id.hasMoreColors);
-        review = findViewById(R.id.review);
+        review = findViewById(R.id.reviewMultiAutoCompleteTextView);
         photoDate = findViewById(R.id.photoDate);
         getUbication = findViewById(R.id.getUbication);
 
@@ -222,8 +220,8 @@ public class BirdFormActivity extends AppCompatActivity {
         String path = Environment.getExternalStorageDirectory().toString();
         OutputStream out = null;
 
-        File file = new File(path + "/MyPics", birdName.getText().toString().replace(" ", "_").toString() + ".jpeg");
-        File fileFolder = new File(path + "/MyPics");
+        File file = new File(path, birdName.getText().toString().replace(" ", "_").toString() + ".jpeg");
+        File fileFolder = new File(path );
 
         try {
             if (!fileFolder.exists()) { // Si no existe, crea el archivo.
