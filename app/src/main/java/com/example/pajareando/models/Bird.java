@@ -2,6 +2,8 @@ package com.example.pajareando.models;
 
 import android.content.Context;
 
+import com.example.pajareando.R;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -193,8 +195,14 @@ public class Bird {
         return imagePath;
     }
 
-    public boolean isMoreColors() {
-        return moreColors;
+    public String getMoreColors() {
+        String b;
+        if (moreColors) {
+            b = context.getString(R.string.Tiene_mas_de_4_colores);
+        }
+        else { b = context.getString(R.string.no_tiene_mas_de_cuatro_colores);
+        }
+        return b;
     }
 
     public String getLongitud() {

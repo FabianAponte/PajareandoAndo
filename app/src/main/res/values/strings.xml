@@ -30,7 +30,6 @@
     <string name="lastBird">Últimas aves fotografiadas</string>
     <string name="consultAllDetails">Detalles</string>
     <string name="reviewDetail">Detalle Ave</string>
-    <string name="reviewDetailDescription">Aqui van los detalles del Ave disponible proximamente</string>
     <string name="registro_de_usuario">Registro de usuario</string>
     <string name="escriba_su_email">Escriba su email</string>
     <string name="confirme_contrasena">Confirme contraseña</string>
@@ -38,6 +37,21 @@
     <string name="solicitud_para_registrarse">¿No tiene usuario?¡Regístrese!</string>
     <string name="salir">Salir</string>
     <string name="obtener_ubicacion">Obtener ubicación</string>
+    <string name="detalle_de_colores_del_ave">Detalle de colores del ave</string>
+    <string name="detalle_nombre_de_ave">detalle_nombre_de_ave</string>
+    <string name="detalle_de_mas_de_cuatro_colores">detalle de mas de cuatro colores</string>
+    <string name="Colores">Colores:</string>
+    <string name="Tiene_mas_de_4_colores">Tiene mas de cuatro colores</string>
+    <string name="no_tiene_mas_de_cuatro_colores">No tiene mas de cuatro colores</string>
+    <string name="detalle_fecha_fotografia">detalle fecha fotografia</string>
+    <string name="detalle_ubicacion_ave">detalle_ubicacion_ave</string>
+    <string name="detalle_tipo_de_ave">detalle tipo de ave</string>
+    <string name="detalle_dimension_del_ave">detalle tamaño del ave</string>
+    <string name="detalle_descripcion_ave">detalle reseña del ave</string>
+    <string name="ubicacion_del_ave">Ubicación del ave:</string>
+    <string name="tipo_de_ave">\"Tipo de ave: \"</string>
+    <string name="dimension_del_ave">\Tamaño del ave: \"</string>
+    <string name="descripcion_del_ave">Reseña del ave:</string>
 
 
 </resources>

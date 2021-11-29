@@ -25,6 +25,14 @@
         android:textColor="#031F55"
         android:textSize="23sp"/>
 
+    <Button
+        android:text="@string/volver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnBackGoToConsultAll"
+        android:layout_marginHorizontal="@dimen/form_button_margin"
+        android:onClick="goToMain"/>
+
     <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
