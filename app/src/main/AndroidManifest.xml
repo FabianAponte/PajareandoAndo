@@ -40,18 +40,23 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
         </activity>
-
 
         <activity
             android:name=".MainActivity"
             android:exported="true" />
         <activity
             android:name=".BirdConsultAllActivity"
+
             android:exported="true">
 
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".BirdConsultAllActivity"
+            android:exported="true">
         </activity>
         <activity
             android:name=".BirdDetailActivity"
