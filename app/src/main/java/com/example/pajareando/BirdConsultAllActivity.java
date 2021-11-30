@@ -82,8 +82,15 @@ public class BirdConsultAllActivity extends AppCompatActivity {
         TextView color = view.findViewById(R.id.birdColor);
 
         if (!bird.getReview().isEmpty()) {
-            color.setText(bird.getReview().toString().substring(0, 20) + "...");
+            int longitud = bird.getReview().length();
+            if (longitud > 20 ){
+                color.setText(bird.getReview().substring(0, 20) + "...");
+            } else {
+                color.setText(bird.getReview());
+
+            }
         } else {
+
             color.setText(bird.getColor1() + " " + bird.getColor2() + " " + bird.getColor3() + " " + bird.getColor4());
         }
 
