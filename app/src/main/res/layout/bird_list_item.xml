@@ -57,6 +57,7 @@
                         android:id="@+id/birdDetail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="@color/teal_700"
                         android:text="@string/consultAllDetails"
                         android:onClick="goToActivityBirdDetail" />
             </LinearLayout>
