@@ -57,9 +57,27 @@
                         android:id="@+id/birdDetail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="@color/teal_700"
                         android:text="@string/consultAllDetails"
                         android:onClick="goToActivityBirdDetail" />
             </LinearLayout>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:gravity="center">
+
+                <Button
+                        android:id="@+id/birdDelete"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/red"
+                        android:textColor="@android:color/white"
+                        android:text="@string/eliminar"
+                        android:onClick="delete"/>
+            </LinearLayout>
+
 
             <TextView
                 android:id="@+id/birdColor"

@@ -1,6 +1,7 @@
 package com.example.pajareando.models;
 
 import android.content.Context;
+import android.widget.Toast;
 
 import com.example.pajareando.R;
 
@@ -155,6 +156,12 @@ public class Bird {
 
                 context
         );
+    }
+
+    public static void deleteById (Context context, int id) {
+        ModelDb.delete(id, TABLE_NAME, context);
+
+        Toast.makeText(context, context.getResources().getString(R.string.bird_deleted), Toast.LENGTH_SHORT).show();
     }
 
     public int getId() { return id; }

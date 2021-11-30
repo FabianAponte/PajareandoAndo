@@ -63,6 +63,10 @@ public class BirdConsultAllActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void delete(View view, int id) {
+        Bird.deleteById(getApplicationContext(), id);
+    }
+
     public void goToMain(View view) {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
@@ -73,9 +77,15 @@ public class BirdConsultAllActivity extends AppCompatActivity {
 
         TextView name = view.findViewById(R.id.birdName);
         Button detail = view.findViewById(R.id.birdDetail);
+        Button delete = view.findViewById(R.id.birdDelete);
         ImageView imageView = view.findViewById(R.id.birdImage);
         TextView color = view.findViewById(R.id.birdColor);
-        color.setText(bird.getColor1() + " " + bird.getColor2() + " " + bird.getColor3() + " " + bird.getColor4());
+
+        if (!bird.getReview().isEmpty()) {
+            color.setText(bird.getReview().toString().substring(0, 20) + "...");
+        } else {
+            color.setText((bird.getColor1() + " " + bird.getColor2() + " " + bird.getColor3() + " " + bird.getColor4()).substring(0, 20) + "...");
+        }
 
         name.setText(bird.getName());
 
@@ -88,8 +98,16 @@ public class BirdConsultAllActivity extends AppCompatActivity {
 
         detail.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                goToActivityBirdDetail(view, bird.getId());
+            public void onClick(View buttonView) {
+                goToActivityBirdDetail(buttonView, bird.getId());
+            }
+        });
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View buttonView) {
+                view.setVisibility(View.GONE);
+                delete(buttonView, bird.getId());
             }
         });
 

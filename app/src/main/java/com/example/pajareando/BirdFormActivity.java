@@ -132,7 +132,7 @@ public class BirdFormActivity extends AppCompatActivity {
     }
 
     public void register(View view) {
-        if (!hasImage) {
+        if (false && !hasImage) {
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             if (intent.resolveActivity(getPackageManager()) != null) {
                 startActivityForResult(intent, 1);
@@ -140,7 +140,7 @@ public class BirdFormActivity extends AppCompatActivity {
         } else {
             if (verifyInfo()) {
                 try {
-                    saveBirdImage();
+//                    saveBirdImage();
                     Bird bird = new Bird(
                             birdName.getText().toString(),
                             birdTypeInput.getText().toString(),
