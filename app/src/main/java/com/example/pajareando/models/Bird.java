@@ -66,7 +66,7 @@ public class Bird {
             String photoDate,
             Context context
     ) {
-        this.name = name;
+        this.setName(name);
         this.type = type;
         this.size = size;
         this.color1 = color1;
@@ -118,7 +118,7 @@ public class Bird {
                 birdInfo.get("color2") != null ? birdInfo.get("color2").toString() : "",
                 birdInfo.get("color3") != null ? birdInfo.get("color3").toString() : "",
                 birdInfo.get("color4") != null ? birdInfo.get("color4").toString() : "",
-                birdInfo.get("moreColors") == "yes",
+                birdInfo.get("moreColors").toString() == "yes",
                 birdInfo.get("review") != null ? birdInfo.get("review").toString() : "",
                 birdInfo.get("imagePath") != null ? birdInfo.get("imagePath").toString() : "",
                 birdInfo.get("longitud") != null ? birdInfo.get("longitud").toString() : "",
@@ -146,7 +146,7 @@ public class Bird {
                 bird.get("color2") != null ? bird.get("color2").toString() : "",
                 bird.get("color3") != null ? bird.get("color3").toString() : "",
                 bird.get("color4") != null ? bird.get("color4").toString() : "",
-                bird.get("moreColors") == "yes",
+                bird.get("moreColors").toString() == "yes",
                 bird.get("review") != null ? bird.get("review").toString() : "",
                 bird.get("imagePath") != null ? bird.get("imagePath").toString() : "",
                 bird.get("longitud") != null ? bird.get("longitud").toString() : "",
@@ -195,12 +195,16 @@ public class Bird {
         return imagePath;
     }
 
+    public boolean isMoreColors() {
+        return moreColors;
+    }
+
     public String getMoreColors() {
         String b;
-        if (moreColors) {
+        if (this.isMoreColors()) {
             b = context.getString(R.string.Tiene_mas_de_4_colores);
-        }
-        else { b = context.getString(R.string.no_tiene_mas_de_cuatro_colores);
+        } else {
+            b = context.getString(R.string.no_tiene_mas_de_cuatro_colores);
         }
         return b;
     }
@@ -215,5 +219,57 @@ public class Bird {
 
     public String getPhotoDate() {
         return photoDate;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public void setColor1(String color1) {
+        this.color1 = color1;
+    }
+
+    public void setColor2(String color2) {
+        this.color2 = color2;
+    }
+
+    public void setColor3(String color3) {
+        this.color3 = color3;
+    }
+
+    public void setColor4(String color4) {
+        this.color4 = color4;
+    }
+
+    public void setReview(String review) {
+        this.review = review;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
+
+    public void setLongitud(String longitud) {
+        this.longitud = longitud;
+    }
+
+    public void setLatitud(String latitud) {
+        this.latitud = latitud;
+    }
+
+    public void setPhotoDate(String photoDate) {
+        this.photoDate = photoDate;
+    }
+
+    public void setMoreColors(boolean moreColors) {
+        this.moreColors = moreColors;
     }
 }
