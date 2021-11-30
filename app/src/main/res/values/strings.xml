@@ -52,6 +52,8 @@
     <string name="tipo_de_ave">\"Tipo de ave: \"</string>
     <string name="dimension_del_ave">\Tamaño del ave: \"</string>
     <string name="descripcion_del_ave">Reseña del ave:</string>
+    <string name="bird_deleted">Ave eliminada</string>
+    <string name="eliminar">Eliminar</string>
 
 
 </resources>
