@@ -84,7 +84,7 @@ public class BirdConsultAllActivity extends AppCompatActivity {
         if (!bird.getReview().isEmpty()) {
             color.setText(bird.getReview().toString().substring(0, 20) + "...");
         } else {
-            color.setText((bird.getColor1() + " " + bird.getColor2() + " " + bird.getColor3() + " " + bird.getColor4()).substring(0, 20) + "...");
+            color.setText(bird.getColor1() + " " + bird.getColor2() + " " + bird.getColor3() + " " + bird.getColor4());
         }
 
         name.setText(bird.getName());
