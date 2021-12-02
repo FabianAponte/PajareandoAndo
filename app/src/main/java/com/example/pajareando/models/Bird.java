@@ -103,6 +103,26 @@ public class Bird {
         ModelDb.save(birdInfo, Bird.TABLE_NAME, this.context);
     }
 
+    public void edit() {
+        Map<String, String> birdInfo = new HashMap<String, String>();
+
+        birdInfo.put("name", this.name);
+        birdInfo.put("type", this.type);
+        birdInfo.put("size", this.size);
+        birdInfo.put("color1", this.color1);
+        birdInfo.put("color2", this.color2);
+        birdInfo.put("color3", this.color3);
+        birdInfo.put("color4", this.color4);
+        birdInfo.put("moreColors", this.moreColors ? "yes" : "no");
+        birdInfo.put("review", this.review);
+        birdInfo.put("imagePath", this.imagePath);
+        birdInfo.put("longitud", this.longitud);
+        birdInfo.put("latitud", this.latitud);
+        birdInfo.put("photoDate", this.photoDate);
+
+        ModelDb.edit(id, birdInfo, Bird.TABLE_NAME, this.context);
+    }
+
     public static ArrayList<Bird> getAll(Context context) {
         ArrayList<Map<String, String>> birdsInfo = ModelDb.getAll(Bird.TABLE_NAME, context);
 
@@ -202,13 +222,13 @@ public class Bird {
         return imagePath;
     }
 
-    public boolean isMoreColors() {
+    public boolean hasMoreColors() {
         return moreColors;
     }
 
     public String getMoreColors() {
         String b;
-        if (this.isMoreColors()) {
+        if (this.hasMoreColors()) {
             b = context.getString(R.string.Tiene_mas_de_4_colores);
         } else {
             b = context.getString(R.string.no_tiene_mas_de_cuatro_colores);

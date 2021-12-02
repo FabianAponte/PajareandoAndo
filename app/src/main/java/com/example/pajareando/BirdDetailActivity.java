@@ -22,15 +22,17 @@ public class BirdDetailActivity extends AppCompatActivity {
     AutoCompleteTextView autoCompleteBirdSizeView;
 
     Bird bird;
+    int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bird_detail);
 
-        int id = getIntent().getExtras().getInt("id");
+        id = getIntent().getExtras().getInt("id");
 
         bird = Bird.findById(getApplicationContext(), id);
+
 
         ImageView birdPhoto = findViewById(R.id.birdImage);
 
@@ -43,9 +45,6 @@ public class BirdDetailActivity extends AppCompatActivity {
 
         TextView nameBird = findViewById(R.id.textNameBird);
         nameBird.setText(bird.getName());
-        Toast.makeText(getApplicationContext(), bird.getName(), Toast.LENGTH_SHORT).show();
-        Toast.makeText(getApplicationContext(), bird.getMoreColors(), Toast.LENGTH_SHORT).show();
-
 
         TextView photoDate = findViewById(R.id.textDatePhoto);
         photoDate.setText(bird.getPhotoDate());
@@ -71,11 +70,14 @@ public class BirdDetailActivity extends AppCompatActivity {
 
     }
 
-
-
-
     public void goToConsultAll(View view) {
         Intent intent = new Intent(getApplicationContext(), BirdConsultAllActivity.class);
+        startActivity(intent);
+    }
+
+    public void edit(View view) {
+        Intent intent = new Intent(getApplicationContext(), BirdFormActivity.class);
+        intent.putExtra("id", id);
         startActivity(intent);
     }
 }

@@ -74,6 +74,7 @@ public class UserRegisterActivity extends AppCompatActivity {
                 );
                 user.save();
 
+                goToLogin(view);
                 Toast.makeText(getApplicationContext(), "Registro de usuario exitoso", Toast.LENGTH_SHORT).show();
             } catch (Exception e) {
                 e.printStackTrace();

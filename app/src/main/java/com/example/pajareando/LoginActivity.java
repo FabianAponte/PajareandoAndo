@@ -59,7 +59,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void goToUserRegister(View view) {
-
         Intent intent = new Intent(getApplicationContext(), UserRegisterActivity.class);
         startActivity(intent);
     }
