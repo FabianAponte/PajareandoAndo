@@ -172,4 +172,30 @@ public class ModelDb {
 
         return itemsDeleted;
     }
+
+    /**
+     * Clase generica para editar info
+     * @param id
+     * @param map
+     * @param table
+     * @param context
+     */
+    public static void edit(int id, Map<String, String> map, String table, Context context) {
+        Database database = new Database(context);
+        SQLiteDatabase writeDb = database.getWritableDatabase();
+
+        ContentValues registry = new ContentValues();
+
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            registry.put(entry.getKey(), entry.getValue());
+        }
+
+        try {
+            writeDb.update(table,  registry, "id = ?", new String[]{ id + ""});
+            writeDb.close();
+            database.close();
+        } catch (Exception e) {
+            Toast.makeText(context, e.getMessage() + "", Toast.LENGTH_SHORT).show();
+        }
+    }
 }

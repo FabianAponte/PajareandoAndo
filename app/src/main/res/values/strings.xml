@@ -7,7 +7,7 @@
     <string name="consultar">Consultar</string>
     <string name="registrar">Registrar</string>
     <string name="quequiereshacer">¿Qué quieres hacer?</string>
-    <string name="about_bird_picture">Sobre la foto de tu ave:</string>
+    <string name="about_bird_picture">NUEVA AVE</string>
     <string name="bird_name">Nombre del ave</string>
     <string name="predominant_colors">Colores predominantes</string>
     <string name="ubication">Ubicación</string>
@@ -26,7 +26,7 @@
     <string name="tomada_el">Tomada el:</string>
     <string name="bird_size">Tamaño del ave</string>
     <string name="bird_type">Tipo de ave</string>
-    <string name="consultBirds">Consulta de aves:</string>
+    <string name="consultBirds">Consulta de aves</string>
     <string name="lastBird">Últimas aves fotografiadas</string>
     <string name="consultAllDetails">Detalles</string>
     <string name="reviewDetail">Detalle Ave</string>
@@ -54,6 +54,8 @@
     <string name="descripcion_del_ave">Reseña del ave:</string>
     <string name="bird_deleted">Ave eliminada</string>
     <string name="eliminar">Eliminar</string>
+    <string name="editar">Editar</string>
+    <string name="edit_bird">Editar ave</string>
 
 
 </resources>

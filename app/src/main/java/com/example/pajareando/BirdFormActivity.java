@@ -54,8 +54,10 @@ public class BirdFormActivity extends AppCompatActivity {
     EditText birdName, color1, color2, color3, color4;
     AutoCompleteTextView birdTypeInput, birdSizeInput;
     CheckBox hasMoreColors;
-    TextView review, photoDate, longitud, latitud;
+    TextView review, photoDate, longitud, latitud, title;
     String absoluteImagePath;
+    int id = 0;
+    Bird editBird;
 
     private FusedLocationProviderClient fusedLocationClient;
     LocationRequest locationRequest;
@@ -99,6 +101,7 @@ public class BirdFormActivity extends AppCompatActivity {
         review = findViewById(R.id.reviewMultiAutoCompleteTextView);
         photoDate = findViewById(R.id.photoDate);
         getUbication = findViewById(R.id.getUbication);
+        title = findViewById(R.id.title);
 
         /**
          * Lógica de location
@@ -111,6 +114,42 @@ public class BirdFormActivity extends AppCompatActivity {
 
         longitud = findViewById(R.id.longitud);
         latitud = findViewById(R.id.latitud);
+
+        Intent intent = getIntent();
+
+        if (intent.hasExtra("id")) {
+            id = intent.getExtras().getInt("id");
+
+            setEditForm(id);
+        }
+    }
+
+    private void setEditForm(int id) {
+        editBird = Bird.findById(getApplicationContext(), id);
+
+        File imgFile = new File(editBird.getImagePath());
+
+        if (imgFile.exists()) {
+            Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+            birdImage.setImageBitmap(myBitmap);
+        }
+
+        birdName.setText(editBird.getName());
+        birdTypeInput.setText(editBird.getType());
+        birdSizeInput.setText(editBird.getSize());
+        color1.setText(editBird.getColor1());
+        color2.setText(editBird.getColor2());
+        color3.setText(editBird.getColor3());
+        color4.setText(editBird.getColor4());
+        hasMoreColors.setChecked(editBird.hasMoreColors());
+        review.setText(editBird.getReview());
+        photoDate.setText(editBird.getPhotoDate());
+        longitud.setText(editBird.getLongitud());
+        latitud.setText(editBird.getLatitud());
+
+        registerButton.setText(R.string.editar);
+        title.setText(R.string.edit_bird);
+        hasImage = true;
     }
 
     private void startCombos() {
@@ -140,27 +179,50 @@ public class BirdFormActivity extends AppCompatActivity {
         } else {
             if (verifyInfo()) {
                 try {
-                    saveBirdImage();
-                    Bird bird = new Bird(
-                            birdName.getText().toString(),
-                            birdTypeInput.getText().toString(),
-                            birdSizeInput.getText().toString(),
-                            color1.getText().toString(),
-                            color2.getText().toString(),
-                            color3.getText().toString(),
-                            color4.getText().toString(),
-                            hasMoreColors.isChecked(),
-                            review.getText().toString(),
-                            absoluteImagePath,
-                            longitud.getText().toString(),
-                            latitud.getText().toString(),
-                            photoDate.getText().toString(),
-                            getApplicationContext()
-                    );
-                    bird.save();
+                    if (editBird == null) {
+                        saveBirdImage();
+                        Bird bird = new Bird(
+                                birdName.getText().toString(),
+                                birdTypeInput.getText().toString(),
+                                birdSizeInput.getText().toString(),
+                                color1.getText().toString(),
+                                color2.getText().toString(),
+                                color3.getText().toString(),
+                                color4.getText().toString(),
+                                hasMoreColors.isChecked(),
+                                review.getText().toString(),
+                                absoluteImagePath,
+                                longitud.getText().toString(),
+                                latitud.getText().toString(),
+                                photoDate.getText().toString(),
+                                getApplicationContext()
+                        );
 
-                    Toast.makeText(getApplicationContext(), "Información de ave guardada", Toast.LENGTH_SHORT).show();
-                    cleanForm();
+                        bird.save();
+
+                        Toast.makeText(getApplicationContext(), "Información de ave guardada", Toast.LENGTH_SHORT).show();
+                        cleanForm();
+                    } else {
+                        editBird.setName(birdName.getText().toString());
+                        editBird.setType(birdTypeInput.getText().toString());
+                        editBird.setSize(birdSizeInput.getText().toString());
+                        editBird.setColor1(color1.getText().toString());
+                        editBird.setColor2(color2.getText().toString());
+                        editBird.setColor3(color3.getText().toString());
+                        editBird.setColor4(color4.getText().toString());
+                        editBird.setMoreColors(hasMoreColors.isChecked());
+                        editBird.setReview(review.getText().toString());
+                        editBird.setImagePath(absoluteImagePath);
+                        editBird.setLongitud(longitud.getText().toString());
+                        editBird.setLatitud(latitud.getText().toString());
+                        editBird.setPhotoDate(photoDate.getText().toString());
+
+                        editBird.edit();
+                        Toast.makeText(getApplicationContext(), "Información de ave editada", Toast.LENGTH_SHORT).show();
+
+                        goToDetail(editBird.getId());
+                    }
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -168,6 +230,12 @@ public class BirdFormActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Falta información necesaria", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    private void goToDetail(int id) {
+        Intent intent = new Intent(getApplicationContext(), BirdDetailActivity.class);
+        intent.putExtra("id", id);
+        startActivity(intent);
     }
 
     private void setPhotoDate() {
