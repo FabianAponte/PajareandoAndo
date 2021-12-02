@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -50,7 +49,7 @@ public class BirdDetailActivity extends AppCompatActivity {
         photoDate.setText(bird.getPhotoDate());
 
         TextView birdLocation = findViewById(R.id.textLocationBird);
-        birdLocation.setText(getString(R.string.ubicacion_del_ave) + bird.getLatitud() + ", "+ bird.getLongitud());
+        birdLocation.setText(getString(R.string.ubicacion_del_ave) + "\n"+ bird.getLatitud() + "\n"+ bird.getLongitud());
 
         TextView birdType = findViewById(R.id.textTypeBird);
         birdType.setText(getString(R.string.bird_type) + ": " + bird.getType());
