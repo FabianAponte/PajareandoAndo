@@ -134,6 +134,10 @@ public class BirdFormActivity extends AppCompatActivity {
             birdImage.setImageBitmap(myBitmap);
         }
 
+        getUbication.setVisibility(View.GONE);
+        latitud.setVisibility(View.VISIBLE);
+        longitud.setVisibility(View.VISIBLE);
+
         birdName.setText(editBird.getName());
         birdTypeInput.setText(editBird.getType());
         birdSizeInput.setText(editBird.getSize());
