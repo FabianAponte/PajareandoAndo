@@ -139,8 +139,8 @@ public class BirdFormActivity extends AppCompatActivity {
         longitud.setVisibility(View.VISIBLE);
 
         birdName.setText(editBird.getName());
-        birdTypeInput.findViewById(R.id.autoCompleteBirdType);
-        birdSizeInput.findViewById(R.id.autoCompleteBirdSize);
+        birdTypeInput.setText(editBird.getType());
+        birdSizeInput.setText(editBird.getSize());
         color1.setText(editBird.getColor1());
         color2.setText(editBird.getColor2());
         color3.setText(editBird.getColor3());
@@ -151,7 +151,7 @@ public class BirdFormActivity extends AppCompatActivity {
         longitud.setText(editBird.getLongitud());
         latitud.setText(editBird.getLatitud());
 
-        registerButton.setText(R.string.Guardar);
+        registerButton.setText(R.string.editar);
         title.setText(R.string.edit_bird);
         hasImage = true;
     }

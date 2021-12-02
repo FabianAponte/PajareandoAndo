@@ -66,7 +66,7 @@
                         android:layout_weight="1"
                         android:text="@string/detalle_fecha_fotografia"
                         android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        android:textSize="@dimen/form_colors" />
 
                 <TextView
                         android:id="@+id/textLocationBird"
@@ -75,7 +75,7 @@
                         android:layout_weight="1"
                         android:text="@string/detalle_ubicacion_ave"
                         android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        android:textSize="@dimen/form_colors" />
 
                 <TextView
                         android:id="@+id/textTypeBird"
@@ -84,7 +84,7 @@
                         android:layout_weight="1"
                         android:text="@string/detalle_tipo_de_ave"
                         android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        android:textSize="@dimen/form_colors" />
 
                 <TextView
                         android:id="@+id/textSizeBird"
@@ -93,7 +93,7 @@
                         android:layout_weight="1"
                         android:text="@string/detalle_dimension_del_ave"
                         android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        android:textSize="@dimen/form_colors" />
 
                 <TextView
                         android:id="@+id/textColorsBird"
@@ -102,7 +102,7 @@
                         android:layout_weight="1"
                         android:text="@string/detalle_de_colores_del_ave"
                         android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        android:textSize="@dimen/form_colors" />
 
                 <TextView
                         android:id="@+id/textMoreColorsBird"
@@ -111,7 +111,7 @@
                         android:layout_weight="1"
                         android:text="@string/detalle_de_mas_de_cuatro_colores"
                         android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        android:textSize="@dimen/form_colors" />
 
                 <TextView
                         android:id="@+id/textReviewBird"
@@ -120,7 +120,7 @@
                         android:layout_weight="1"
                         android:text="@string/detalle_descripcion_ave"
                         android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        android:textSize="@dimen/form_colors" />
             </LinearLayout>
         </ScrollView>
 
